@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "User Creation" do
+    context "when an email already exists in the database" do
+      it "should not create a new user" do
+        
+      end
+    end
+
     context "in a state where we offer services" do
       it "should include all attributes" do
       
