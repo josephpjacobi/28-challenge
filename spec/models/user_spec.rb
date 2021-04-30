@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context "in a stat where we do not offer services" do
+    context "in a state where we do not offer services" do
       it " should not create a user" do
         
       end
