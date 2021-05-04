@@ -7,11 +7,12 @@ class WelcomeController < ApplicationController
     @full_name = display_params[:full_name]
     @email = display_params[:email]
     @date_of_birth = display_params[:date_of_birth]
+    @state = State.find(display_params[:state][:id])
   end
 end
 
 private
 
 def display_params
-  params.permit(:full_name, :email, :date_of_birth)
+  params.permit(:full_name, :email, :date_of_birth, state: [:id] )
 end
