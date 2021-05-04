@@ -7,14 +7,18 @@
 
 .row.mt-4.d-flex.justify-content-center
   .col-6
-    form action=""
+    = form_tag( '/welcome/display') do |f| 
+      true
       .form-group 
-        label.ml-2 for="fullName"
+        label.ml-2 for="full_name"
           | Name:  
-        input.form-control type="text" id="fullName"/
-.text-center
-    button.btn.btn-primary type="submit"
-      | Submit 
+        input.form-control type="text" id="full_name" name="full_name"/
+        label.ml-2 for="email"
+          | Email:  
+        input.form-control type="email" id="email" name="email"/
+        .text-center
+            button.btn.btn-primary type="submit"
+              | Submit 
 // Form
 
 // Input Field for Full Name
