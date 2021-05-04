@@ -1,4 +1,38 @@
-.row.mt-2
+.row.mt-2 
   .col-12.text-center
     h1
-      | Welcome to the 28H Coding Challenge!
+      | Welcome to the TwentyEight Health! 
+    h2 
+      | Fill in the form below to sign up!
+
+.row.mt-4.d-flex.justify-content-center
+  .col-6
+    = form_tag( '/welcome/display') do |f| 
+      true
+      .form-group 
+        label.ml-2 for="full_name"
+          | Name:  
+        input.form-control type="text" id="full_name" name="full_name"/
+        label.ml-2 for="email"
+          | Email:  
+        input.form-control type="email" id="email" name="email"/
+        label.ml-2 for="date_of_birth"
+          | Date of Birth:  
+        input.form-control type="date" id="date_of_birth" name="date_of_birth"/
+        label.ml-2 for="state"
+          | State :
+        = collection_select(:state, :id, State.all, :id, :full_name, {:include_blank => true}, {class: 'form-control'})   
+        .text-center
+            button.btn.btn-primary.mt-2 type="submit"
+              | Submit 
+// Form
+
+// Input Field for Full Name
+
+// Input Field for Email
+
+// Input Field
+
+// Input Field Date of Birth
+
+// Drop down for State
