@@ -1,0 +1,22 @@
+= javascript_include_tag "success"
+.row.mt-2 
+  .col-12.text-center   
+    h1  
+      | Success! 
+.row.mt-2.justify-content-center
+  .col-6.text-center
+    h3 
+      | Here are the products you selected:
+    - Category.all.each do |category|
+      - if @products[category.name]
+        .d-flex.justify-content-center.flex-column.mt-4
+          h5
+            = category.name
+          p
+            = @products[category.name]
+      
+.row.mt-6.justify-content-center
+  .col-6.text-center 
+    h3 
+      | Your doctor is:
+    

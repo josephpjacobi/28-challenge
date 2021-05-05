@@ -1,3 +1,4 @@
+= javascript_include_tag "welcome"
 .row.mt-2 
   .col-12.text-center
     h1
@@ -7,8 +8,7 @@
 
 .row.mt-4.d-flex.justify-content-center
   .col-6
-    = form_tag( '/welcome/display') do |f| 
-      true
+    = form_tag('/welcome/products') do |f| 
       .form-group 
         label.ml-2 for="full_name"
           | Name:  
@@ -21,18 +21,7 @@
         input.form-control type="date" id="date_of_birth" name="date_of_birth"/
         label.ml-2 for="state"
           | State :
-        = collection_select(:state, :id, State.all, :id, :full_name, {:include_blank => true}, {class: 'form-control'})   
+        = collection_select(:state, :id, State.all, :attributes, :full_name, {:include_blank => true}, {class: 'form-control'})   
         .text-center
-            button.btn.btn-primary.mt-2 type="submit"
+            button.btn.btn-primary.mt-2 disabled="disabled" type="submit" id="user_submit"
               | Submit 
-// Form
-
-// Input Field for Full Name
-
-// Input Field for Email
-
-// Input Field
-
-// Input Field Date of Birth
-
-// Drop down for State

@@ -9,16 +9,20 @@
     = form_tag("/welcome/success") do |f|
       .row
         - Category.all.each do |category|
-          .col-3.text-center.border.border-dark
+          .col-3.text-center.border.border-dark id="#{category}"
             p 
               = category.name
             - category.products.each do |product|
               .form-check.d-flex.justify-content-between
-                input.form-check-input type="checkbox" name="product1" id="product1" value="PRODUCT"/
-                label.form-check-label for="product1"
+                input.form-check-input type="radio" name="#{product.category.name}" id="#{product.id}" value="#{product.name}"/
+                label.form-check-label for="#{product.category.name}"
                   = product.name
                 p 
-                  = " Price: $#{product.price}.00" 
+                  = " Price: $#{product.price}.00"
+      input type="hidden" name="full_name" value="#{@full_name}"/
+      input type="hidden" name="email" value="#{@email}"/ 
+      input type="hidden" name="dob" value="#{@date_of_birth}"/ 
+      input type="hidden" name="state" value="#{@state_abbreviation}"/  
       .text-center
             button.btn.btn-primary.mt-2 type="submit" id="user_submit"
               | Submit 
