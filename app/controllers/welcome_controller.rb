@@ -3,16 +3,31 @@ class WelcomeController < ApplicationController
     @states = State.all
   end
 
-  def display
-    @full_name = display_params[:full_name]
-    @email = display_params[:email]
-    @date_of_birth = display_params[:date_of_birth]
-    @state = State.find(display_params[:state][:id])
+  def products 
+    @categories = Category.all
+    @full_name = products_params[:full_name]
+    @email = products_params[:email]
+    @date_of_birth = products_params[:date_of_birth]
+    @state_abbreviation = State.find_by(full_name: products_params[:state][:id]).abbreviation
+  end
+
+  def success
+    @products = success_params
+    @hidden_params = hidden_params
   end
 end
 
+
 private
 
-def display_params
+def products_params
   params.permit(:full_name, :email, :date_of_birth, state: [:id] )
+end
+
+def success_params
+  params.permit("Birth Control", "Emergency Contraception", "Testing Kits", "OTC Products")
+end
+
+def hidden_params
+  params.permit(:full_name, :email, :dob, :state)
 end
