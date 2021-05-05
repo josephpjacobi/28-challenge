@@ -1,0 +1,31 @@
+.row.mt-2 
+  .col-12.text-center
+    h1 
+      | Welcome to TwentyEight Health!
+    h2.mt-2 
+      | Please Select From Our Products Below
+.row.mt-4.d-flex.justify-content-center
+  .col 
+    = form_tag("/welcome/success") do |f|
+      - category1 = Category.first 
+      - product = category1.products.first
+      .row 
+        .col-3.text-center
+          p 
+            = category1.name
+          .form-check.d-flex.justify-content-between
+            input.form-check-input type="checkbox" name="product1" id="product1" value="PRODUCT"/
+            label.form-check-label for="product1"
+              = product.name
+            p 
+              = " Price: $#{product.price}.00"
+          .form-check.d-flex.justify-content-between
+            input.form-check-input type="checkbox" name="product1" id="product1" value="PRODUCT"/
+            label.form-check-label for="product1"
+              = product.name
+            p 
+              = " Price: $#{product.price}.00"
+      .text-center
+            button.btn.btn-primary.mt-2 type="submit" id="user_submit"
+              | Submit 
+  
